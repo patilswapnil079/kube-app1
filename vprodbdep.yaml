@@ -31,6 +31,12 @@ spec:
                 secretKeyRef:
                   name: app-secret
                   key: db-pass
+      tolerations:
+          - key: demo-taint
+            operator: Equal
+            value: allow
+            effect: NoSchedule
+
       nodeSelector:
         zone: us-east-1a
       volumes:
@@ -38,9 +44,3 @@ spec:
           awsElasticBlockStore:
             volumeID: vol-07605d0299845fa4b
             fsType: ext4
-       spec:
-         tolerations:
-          - key: demo-taint
-            operator: Equal
-            value: allow
-            effect: NoSchedule
