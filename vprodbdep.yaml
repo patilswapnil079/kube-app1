@@ -38,3 +38,9 @@ spec:
           awsElasticBlockStore:
             volumeID: vol-07605d0299845fa4b
             fsType: ext4
+       spec:
+         tolerations:
+          - key: demo-taint
+            operator: Equal
+            value: allow
+            effect: NoSchedule
